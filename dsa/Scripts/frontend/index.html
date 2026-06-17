@@ -3,27 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dictionary</title>
+    <title>Dictionary App</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+    <!-- HEADER -->
     <header>
         <nav>
             <h1>Dictionary</h1>
         </nav>
     </header>
 
+    <!-- MAIN -->
     <main>
-        <form id="searchForm">
-            <input type="text" id="wordInput" placeholder="Enter a word">
-            <button type="submit">search</button>
-        </form>
 
+        <!-- SEARCH CONTAINER -->
+        <div class="search-box">
+
+            <form id="searchForm" autocomplete="off">
+
+                <input
+                    type="text"
+                    id="wordInput"
+                    placeholder="Enter a word..."
+                />
+
+                <button type="submit">Search</button>
+
+                <!-- ✅ AUTOCOMPLETE DROPDOWN -->
+                <ul id="suggestions"></ul>
+
+            </form>
+
+        </div>
+
+        <!-- RESULT DISPLAY -->
         <div class="result" id="result"></div>
+
     </main>
 
-    <footer>&copy; DSA</footer>
+    <!-- FOOTER -->
+    <footer>
+        &copy; Dictionary Project (DSA + Trie)
+    </footer>
 
+    <!-- SCRIPT -->
     <script src="script.js"></script>
+
 </body>
 </html>

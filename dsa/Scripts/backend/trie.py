@@ -30,7 +30,31 @@ class Trie:
                 return None
             node = node.children[ch]
 
-        if node.is_end:
-            return node.meaning
+        return node.meaning if node.is_end else None
 
-        return None
+    # ---------------- PREFIX SEARCH ----------------
+
+    def _dfs(self, node, prefix, results):
+        """Collect all words under this node"""
+        if node.is_end:
+            results.append((prefix, node.meaning))
+
+        for ch, child in node.children.items():
+            self._dfs(child, prefix + ch, results)
+
+    def starts_with(self, prefix):
+        """Returns all words + meanings that start with prefix"""
+        node = self.root
+        prefix = prefix.lower()
+
+        # 1. Navigate to prefix node
+        for ch in prefix:
+            if ch not in node.children:
+                return []   # no matches
+            node = node.children[ch]
+
+        # 2. DFS from that node
+        results = []
+        self._dfs(node, prefix, results)
+
+        return results

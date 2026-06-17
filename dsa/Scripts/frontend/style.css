@@ -1,82 +1,151 @@
-:root{
-    --header-color:#008080;
-    --bcg-color:white;
+:root {
+    --header-color: #008080;
+    --bcg-color: #f4f6f8;
     --padding: 20px;
-    --text-color:white;
-    --border-radius:5px;
-    --primary-color:#008080;
+    --text-color: white;
+    --border-radius: 6px;
+    --primary-color: #008080;
+    --shadow: 0px 0px 10px rgba(0,0,0,0.15);
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color:var(--bcg-color);
-    width: 100vw;
+    background-color: var(--bcg-color);
+    width: 100%;
+    min-height: 100vh;
 }
 
-header{
-    background-color:var(--header-color); 
-    padding:var(--padding);
-    color:var(--text-color);
+/* ---------------- HEADER ---------------- */
+header {
+    background-color: var(--header-color);
+    padding: var(--padding);
+    color: var(--text-color);
     text-align: center;
 }
-header h1{
-    font-size: 36px;
 
+header h1 {
+    font-size: 36px;
 }
 
-main{
-    min-height: 78vh;
-    padding:var(--padding);
+/* ---------------- MAIN ---------------- */
+main {
+    min-height: 80vh;
+    padding: var(--padding);
     max-width: 800px;
     margin: 0 auto;
 }
 
-main form{
+/* ---------------- SEARCH BOX ---------------- */
+.search-box {
+    position: relative;
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
 
-form input[type="text"]{
-    flex-grow: 0.2;
+main form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
 }
 
-form input[type="text"],button[type="submit"]{
-    border:none;
+/* input */
+form input[type="text"] {
+    flex: 1;
+    max-width: 400px;
+    border: none;
     font-size: 16px;
     font-weight: 500;
-    border-radius:var(--border-radius) ;
-    padding: calc(20px/2);
+    border-radius: var(--border-radius);
+    padding: 12px;
+    outline: none;
 }
 
-form button[type="submit"]{
+/* button */
+form button[type="submit"] {
     background-color: var(--primary-color);
-    color:var(--text-color);
+    color: var(--text-color);
     margin-left: 10px;
     cursor: pointer;
+    border: none;
+    font-size: 16px;
+    padding: 12px 18px;
+    border-radius: var(--border-radius);
+    transition: 0.2s ease;
 }
 
-footer{
+form button[type="submit"]:hover {
+    opacity: 0.9;
+}
+
+/* ---------------- AUTOCOMPLETE DROPDOWN ---------------- */
+#suggestions {
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-width: 400px;
+    margin: 5px auto 0 auto;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* ---------------- RESULT BOX ---------------- */
+.result {
+    background-color: white;
+    padding: var(--padding);
+    border-radius: var(--border-radius);
+    margin-top: 25px;
+    box-shadow: var(--shadow);
+    min-height: 150px;
+    width: 100%;
+}
+
+/* ---------------- FOOTER ---------------- */
+footer {
     background-color: var(--primary-color);
     color: var(--text-color);
     padding: var(--padding);
     text-align: center;
     position: fixed;
+    bottom: 0;
     width: 100%;
 }
 
-.result{
-    background-color: white;
-    padding: var(--padding);
-    border-radius: var(--border-radius);
-    margin-top: 20px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-    height: 200px;
-    width: 80%;
-}
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 600px) {
+    form {
+        flex-direction: column;
+        gap: 10px;
+    }
 
+    form button {
+        margin-left: 0;
+    }
+
+    #suggestions {
+        max-width: 100%;
+    }
+}
