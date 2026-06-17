@@ -1,1 +1,1 @@
-This is a simple DSA project demonstrating the implementation of Trie concept in Dictionary Search Algorithm.
+This is a simple DSA project demonstrating the implementation of Trie  data structure concept in Dictionary Search.
