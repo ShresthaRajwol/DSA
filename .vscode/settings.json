@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./dsa/Scripts/backend/__pycache__"
+    ]
+}
